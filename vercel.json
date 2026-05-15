@@ -1,5 +1,19 @@
 {
-  "framework": "create-react-app",
-  "buildCommand": "cd client && npm install && CI=false npm run build",
-  "outputDirectory": "client/build"
+  "version": 2,
+  "builds": [
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    },
+    {
+      "src": "server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server/index.js" },
+    { "src": "/static/(.*)", "dest": "/client/static/$1" },
+    { "src": "/(.*)", "dest": "/client/index.html" }
+  ]
 }
