@@ -7,7 +7,7 @@ const seedProducts = async () => {
     let sellerId;
     if (users.length === 0) {
       const [result] = await pool.query(`
-        INSERT INTO users (full_name, email, password_hash, college_name) 
+        INSERT INTO users (full_name, email, password, college_name) 
         VALUES ('System Seeder', 'seeder@studentmart.com', 'hashedpassword', 'Example University')
       `);
       sellerId = result.insertId;
