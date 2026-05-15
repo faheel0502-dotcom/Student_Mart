@@ -1,0 +1,12 @@
+{
+  "name": "studentmart",
+  "version": "1.0.0",
+  "description": "StudentMart — Full-stack campus marketplace",
+  "private": true,
+  "scripts": {
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "install-all": "cd server && npm install && cd ../client && npm install",
+    "dev": "start cmd /k \"cd server && npm run dev\" && start cmd /k \"cd client && npm start\""
+  }
+}
